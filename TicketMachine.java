@@ -18,7 +18,6 @@ public class TicketMachine
     // The total amount of money collected by this machine.
     private int total;
 
-    
     /**
      * Create a machine that issues tickets of the given price.
      */
@@ -57,7 +56,7 @@ public class TicketMachine
         }
         else {
             System.out.println("Use a positive amount rather than: " +
-                               amount);
+                amount);
         }
     }
 
@@ -82,14 +81,13 @@ public class TicketMachine
             // Reduce the balance by the prince.
             balance = balance - price;
         }
-                    else {
+        else {
             System.out.println("You must insert at least: " +
-                               (price - balance) + " more cents.");
-                    
+                (price - balance) + " more cents.");
+
         }
     }
 
-    
     /**
      * Return the money in the balance.
      * The balance is cleared.
@@ -102,14 +100,25 @@ public class TicketMachine
         return amountToRefund;
 
     }
+
     /**
-     * vaciar el dinero de todas las maquinas
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
      */
     public int emptyMachine(int devolverPasta)
     {
-        devolverPasta=total + balance;
-        balance=0;
-        total=0;
+        if (balance == 0){
+            devolverPasta=total + balance;
+            balance = 0;
+            total=0;
+        }
+        else{
+            System.out.println("ERROR: La máquina no se puede vaciar porque hay una operación en curso");
+            devolverPasta = -1;
+        }
         return devolverPasta;
     }
+
 }
